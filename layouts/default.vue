@@ -1,13 +1,5 @@
 <template>
-  <div>
+  <div class="w-screen h-screen bg-white dark:bg-gray-900">
     <slot />
   </div>
 </template>
-
-<script lang="ts" setup>
-
-</script>
-
-<style>
-
-</style>
