@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "Nuxt.mdc",
+    "antfu.goto-alias",
+    "Nuxtr.nuxtr-vscode",
+    "Vue.volar",
+    "antfu.iconify"
+  ],
+  "unwantedRecommendations": [
+    "jcbuisson.vue",
+    "Vue.vscode-typescript-vue-plugin"
+  ]
+}
