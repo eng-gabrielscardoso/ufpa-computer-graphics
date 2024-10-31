@@ -1,5 +1,5 @@
 import { noiseRemover } from "~/server/scripts/image-processing/noise-remover";
-import { ResponseStatus } from "~/support/reponseStatus";
+import { ResponseStatus } from "~/support/responseStatus";
 
 export default defineEventHandler(async (event) => {
   const formData = await readMultipartFormData(event);

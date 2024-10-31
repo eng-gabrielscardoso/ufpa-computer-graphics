@@ -9,7 +9,7 @@
         icon="i-heroicons-folder"
         accept=".jpg,.jpeg,.png,.bmp"
         class="w-full lg:w-fit"
-        @change="onTargetChange"
+        @change="onTargetChange()"
       />
       <template v-if="targetPreview">
         <img
@@ -26,7 +26,16 @@
       class="col-12 p-2 flex flex-col lg:col-span-3 lg:items-center lg:justify-center"
     >
       <UCard class="w-full">
-        <template #header>Computer Graphics Algorithms Live Demo</template>
+        <template #header>
+          <div class="flex justify-between items-center">
+            <h1>Computer Graphics Algorithms</h1>
+            <USelectMenu
+              v-model="selectedAlgorithm"
+              :options="availableAlgorithms"
+              option-attribute="label"
+            />
+          </div>
+        </template>
 
         <!-- parameters goes here -->
         <UForm
@@ -57,12 +66,15 @@
 <script lang="ts" setup>
 import { z } from "zod";
 import type { FormSubmitEvent } from "#ui/types";
+import type { TAlgorithm } from "~/support/algorithms";
 
 const toast = useToast();
+const { availableAlgorithms } = useAppConfig();
 
 const file = ref<File | null>(null);
 const targetPreview = ref<string | null>(null);
 const targetProcessed = ref<string | null>(null);
+const selectedAlgorithm = ref<TAlgorithm | null>(availableAlgorithms.[0]);
 
 const schema = z.object({});
 
@@ -71,7 +83,7 @@ type Schema = z.output<typeof schema>;
 const state = reactive({});
 
 const onTargetChange = (event: Event) => {
-  const selectedFile = event?.[0] || event.target?.files?.[0]
+  const selectedFile = event?.[0] || event.target?.files?.[0];
 
   if (selectedFile && selectedFile.type.startsWith("image/")) {
     file.value = selectedFile;
@@ -121,20 +133,7 @@ const onSubmit = async (event: FormSubmitEvent<Schema>) => {
       body: formData,
     });
 
-    const canvas = ref<HTMLCanvasElement | null>(null);
-    if (canvas.value) {
-      const ctx = canvas.value.getContext("2d");
-      const img = new Image();
-
-      img.onload = () => {
-        canvas.value.width = img.width;
-        canvas.value.height = img.height;
-        ctx?.drawImage(img, 0, 0);
-      };
-
-      img.src = response.data;
-      targetProcessed.value = img.src;
-    }
+    console.log(response);
   } catch (error) {
     toast.add({
       title: "An error occurred during processing your image",
