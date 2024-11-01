@@ -1,75 +1,21 @@
-# Nuxt Minimal Starter
+# UFPA Computer Graphics
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Identification
 
-## Setup
+**Student Name**: Gabriel Santos Cardoso
+**Student ID**: 202111140007
 
-Make sure to install dependencies:
+## Summary
 
-```bash
-# npm
-npm install
+Implementation of main computer graphics algorithms made using Typescript + Nuxt.js. 
 
-# pnpm
-pnpm install
+## Installation
 
-# yarn
-yarn install
+To use this application make sure to have the most recent version of PNPM installed in your machine. For a rapid installation jump to [PNPM site](https://pnpm.io) or just run the command `curl -fsSL https://get.pnpm.io/install.sh | sh -.
 
-# bun
-bun install
-```
+1. Clone the repository using your preference tool or using the command `git clone https://github.com/eng-gabrielscardoso/ufpa-computer-graphics.git`
+2. Install the required dependencies using `pnpm i` and serve the application using the `pnpm dev -o`.
 
-## Development Server
+## Licence
 
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This project is licenced under the [MIT Licence](LICENSE).
